@@ -35,6 +35,7 @@ Do {
         {
             Write-Host -ForegroundColor Yellow 'You selected:'
             Write-Host -ForegroundColor Green -NoNewLine '  Domain Controller' `n
+            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/server/choc-adds.ps1?token=AN6IDO5QNIIYEC74ZAWQWLLAKVV7G
         }
     Else{
         Write-Warning "Invalid Input"
