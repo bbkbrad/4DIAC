@@ -91,11 +91,11 @@ Install-WindowsUpdate -AcceptEula
 
 
 ### configure static IP
-Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/workstation/bs-workstation.ps1 -Credential $cred
+Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/set-staticip.ps1 -Credential $cred
 
 
 ### hostname
-Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/workstation/bs-workstation.ps1 -Credential $cred
+Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/set-hostname.ps1 -Credential $cred
 
 
 ### run fucntions
