@@ -1,49 +1,3 @@
-####################################
-####################################
-###   bug user for information   ###
-####################################
-####################################
-
-
-### user credentials for persistant reboots
-
-$cred = Get-Credential $env:COMPUTERNAME'\administrator' 
-
-
-### hostname
-
-Write-Host -ForegroundColor Green 'Provide a hostname for the machine'
-$hostname = Read-Host
-
-
-### static IP address
-
-Write-Host -ForegroundColor Green 'Provide a static IP address (172.16.0.100)'
-$ipaddress = Read-Host
-Write-Host -ForegroundColor Green 'Provide a default gateway (172.16.0.1)'
-$gateway = Read-Host
-Write-Host -ForegroundColor Green 'Provide a subnet CIDR (8, 16, 24)'
-$subnet = Read-Host
-
-
-### update OS
-
-Enable-MicrosoftUpdate
-Install-WindowsUpdate -AcceptEula
-
-### run fucntions
-set-staticip
-set-hostname
-configure-adds
-authorize-dhcp
-
-### cleanup misc files
-del C:\eula*.txt
-del C:\install.*
-del C:\vcredist.*
-del C:\vc_red.*
-
-
 ##########################
 ##########################
 ###   function block   ###
@@ -145,3 +99,52 @@ function authorize-dhcp {
     
     Invoke-Reboot
 }
+
+
+
+####################################
+####################################
+###   bug user for information   ###
+####################################
+####################################
+
+
+### user credentials for persistant reboots
+
+$cred = Get-Credential $env:COMPUTERNAME'\administrator' 
+
+
+### hostname
+
+Write-Host -ForegroundColor Green 'Provide a hostname for the machine'
+$hostname = Read-Host
+
+
+### static IP address
+
+Write-Host -ForegroundColor Green 'Provide a static IP address (172.16.0.100)'
+$ipaddress = Read-Host
+Write-Host -ForegroundColor Green 'Provide a default gateway (172.16.0.1)'
+$gateway = Read-Host
+Write-Host -ForegroundColor Green 'Provide a subnet CIDR (8, 16, 24)'
+$subnet = Read-Host
+
+
+### update OS
+
+Enable-MicrosoftUpdate
+Install-WindowsUpdate -AcceptEula
+
+### run fucntions
+set-staticip
+set-hostname
+configure-adds
+authorize-dhcp
+
+### cleanup misc files
+del C:\eula*.txt
+del C:\install.*
+del C:\vcredist.*
+del C:\vc_red.*
+
+
