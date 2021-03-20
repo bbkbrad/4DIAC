@@ -148,3 +148,5 @@ del C:\vcredist.*
 del C:\vc_red.*
 
 
+### final reboot
+Invoke-Reboot
