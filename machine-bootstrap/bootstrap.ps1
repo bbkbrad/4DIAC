@@ -18,28 +18,28 @@ Do {
         {
             Write-Host -ForegroundColor Yellow 'You selected:'
             Write-Host -ForegroundColor Green -NoNewLine '  Base Workstation' `n
-            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/workstation/bs-workstation.ps1 -DisableReboots
+            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/workstation/bs-workstation.ps1
             $success = 1
         }
     Elseif ($selection -eq "2")
         {
             Write-Host -ForegroundColor Yellow 'You selected:'
             Write-Host -ForegroundColor Green -NoNewLine '  Brads Workstation' `n
-            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/workstation/bs-brad.ps1 -DisableReboots
+            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/workstation/bs-brad.ps1
             $success = 1
         }
     Elseif ($selection -eq "3")
         {
             Write-Host -ForegroundColor Yellow 'You selected:'
             Write-Host -ForegroundColor Green -NoNewLine '  Base Server' `n
-            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/server/bs-server.ps1 -DisableReboots
+            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/server/bs-server.ps1
             $success = 1
         }
     Elseif ($selection -eq "4")
         {
             Write-Host -ForegroundColor Yellow 'You selected:'
             Write-Host -ForegroundColor Green -NoNewLine '  Domain Controller' `n
-            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/server/bs-adds.ps1 -DisableReboots
+            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/server/bs-adds.ps1
             $success = 1
         }
     Else{
