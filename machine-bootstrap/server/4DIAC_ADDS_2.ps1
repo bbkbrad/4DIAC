@@ -43,11 +43,5 @@ netsh dhcp add securitygroups
 ### Notify Server Manager that post-install is complete
 Set-ItemProperty –Path registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager\Roles\12 –Name ConfigurationState –Value 2
 
-### Prompt user to reboot
-Write-Host -NoNewline -ForegroundColor Yellow 'Restart computer now? [y/n] '
-$input = Read-Host
-switch($input){
-          y{Restart-computer -Force -Confirm:$false}
-          n{exit}
-    default{write-warning "Invalid Input"}
-}
+### Reboot
+Invoke-Reboot

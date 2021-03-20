@@ -1,15 +1,16 @@
 ### Set Hostname
-# Rename-Computer -NewName "dc1" -Force.     ### Requires PS3.0
-(Get-WmiObject Win32_ComputerSystem).Rename('dc1')
+Write-Host -ForegroundColor Yellow 'Please enter a hostname for the domain controller.' `n
+$hostname = Read-Host
+(Get-WmiObject Win32_ComputerSystem).Rename($hostname)
 
 ### Set Static IP
-New-NetIPAddress –IPAddress 172.16.0.11 -DefaultGateway 172.16.0.1 -PrefixLength 16 -InterfaceIndex (Get-NetAdapter).InterfaceIndex
+Write-Host -ForegroundColor Yellow 'Please enter IP address, Gateway, and Subnet CIDR' `n
+$ipaddress = Read-Host
+Write-Host -ForegroundColor Yellow 'Please enter a hostname for the domain controller.' `n
+$gateway = Read-Host
+Write-Host -ForegroundColor Yellow 'Please enter a hostname for the domain controller.' `n
+$subnetmask = Read-Host
+New-NetIPAddress –IPAddress $ipaddress -DefaultGateway $gateway -PrefixLength $subnetmask -InterfaceIndex (Get-NetAdapter).InterfaceIndex
 
-### Prompt user to reboot
-Write-Host -NoNewline -ForegroundColor Yellow 'Restart computer now? [y/n] '
-$input = Read-Host
-switch($input){
-          y{Restart-computer -Force -Confirm:$false}
-          n{exit}
-    default{write-warning "Invalid Input"}
-}
+### Reboot
+Invoke-Reboot

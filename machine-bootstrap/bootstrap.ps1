@@ -1,9 +1,9 @@
 ####  install chocolatey
-#Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 
 ####  install boxstarter
-#Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://boxstarter.org/bootstrapper.ps1')); Get-Boxstarter -Force
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://boxstarter.org/bootstrapper.ps1')); Get-Boxstarter -Force
 
 
 ### script selection
@@ -18,24 +18,29 @@ Do {
         {
             Write-Host -ForegroundColor Yellow 'You selected:'
             Write-Host -ForegroundColor Green -NoNewLine '  Base Workstation' `n
+            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/workstation/bs-workstation.ps1?token=AN6IDO3VGGQS6FCFH5LKZBLAKVWII
+            $success = 1
         }
     Elseif ($selection -eq "2")
         {
             Write-Host -ForegroundColor Yellow 'You selected:'
             Write-Host -ForegroundColor Green -NoNewLine '  Brads Workstation' `n
-            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/workstation/choc-brad.ps1?token=AN6IDO7RFQOQAO6FWFWHZQTAKVP5O
+            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/workstation/bs-brad.ps1?token=AN6IDO6VMA2JO7VQ27VLU2TAKVWJ2
+            $success = 1
         }
     Elseif ($selection -eq "3")
         {
             Write-Host -ForegroundColor Yellow 'You selected:'
             Write-Host -ForegroundColor Green -NoNewLine '  Base Server' `n
-            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/server/choc-server.ps1?token=AN6IDO3TUREGI2FNS4M2I5TAKVPGA
+            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/server/bs-server.ps1?token=AN6IDO53XJ766P7E6OIXY3TAKVWLM
+            $success = 1
         }
     Elseif ($selection -eq "4")
         {
             Write-Host -ForegroundColor Yellow 'You selected:'
             Write-Host -ForegroundColor Green -NoNewLine '  Domain Controller' `n
-            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/server/choc-adds.ps1?token=AN6IDO5QNIIYEC74ZAWQWLLAKVV7G
+            Install-BoxstarterPackage -PackageName https://raw.githubusercontent.com/bbkbrad/4DIAC/main/machine-bootstrap/server/bs-adds.ps1?token=AN6IDO2JXBSI4HBCPEFDCM3AKVWM6
+            $success = 1
         }
     Else{
         Write-Warning "Invalid Input"
