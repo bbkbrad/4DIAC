@@ -17,7 +17,7 @@ function set-hostname {
     ### Set hostname
 
     (Get-WmiObject Win32_ComputerSystem).Rename($hostname)
-    if (Test-PendingReboot) { Invoke-Reboot }
+    Restart-Computer
 }
 
 
@@ -85,7 +85,7 @@ function configure-adds {
 
     ### Reboot
     
-    Invoke-Reboot
+    Restart-Computer
 }
 
 
@@ -97,7 +97,7 @@ function authorize-dhcp {
 
     ### Reboot
     
-    Invoke-Reboot
+    Restart-Computer
 }
 
 
@@ -149,4 +149,4 @@ del C:\vc_red.*
 
 
 ### final reboot
-Invoke-Reboot
+Restart-Computer
